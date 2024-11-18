@@ -201,7 +201,198 @@ const numberNewArray = [1,2,3,4,5] ;
 const findIndexOutput = numberNewArray.findIndex((item)=>{
 return item > 5
 }) ;
-console.log(findIndexOutput) ;
+console.log(findIndexOutput) ; 
+
+
+//NOTE functions 
+
+
+//FUNCTION DEClaration
+console.log(window.sum(3,4));
+
+function sum(a,b){
+    return a + b 
+}
+
+console.log(window)
+// hoisiting js
+// sum(3,4);
+
+//function expression
+// console.log(substraction(4,7)) ;
+
+
+//initail value of the var in hoisting is undefined
+
+//the inital value of the function decalaration in hositing is function itself
+// let const are in the tdz(temporal dead zone) till we assign value in the variable
+// console.log(substraction(4,3)) ;
+// const substraction = function(a,b){
+//     return b-a
+// }
+// console.log(substraction(4,7))
+// console.log(a)
+//  var a = 4 ;
+
+
+//arrow function
+//single line and multi line
+//NOTE when function body have multiples line we have to use the return keyword and {} ;
+const multiply = (a,b) => {
+const result = a*5 ;
+return result; }
+console.log(multiply(4,5)) ;
+
+//when we have single params value
+const print = a => a ;
+
+console.log(print(5)) ;
+
+
+
+//return keyword and {}
+
+//NOTE forEach 
+
+// callback = () => {}
+const numbers = [1,2,3,4,5,6] ;
+const forEachOutput = numbers.forEach((item)=>{
+console.log(item)
+})
+
+console.log(forEachOutput)
+
+//map , filter ,reducer 
+
+//map higher order method 
+
+//array of objects 
+
+const userNames = [{firstName : 'abc' , lastName:'xyz'},{firstName : "test" ,lastName : 'tested'}]
+
+const mappedResult = userNames.map((item)=> {
+    return `${item.firstName} ${item.lastName}`
+})
+
+console.log(mappedResult) ;
+console.log(userNames) ;
+
+//NOTE filter (higher order method) ;
+
+const productss = [{ProudctName : 'Mobile',productPrice : 33434 , category :'mobile'},{
+    ProudctName : 'TV',productPrice : 33434 , category :'electronics'
+},{ProudctName : 'Ac',productPrice : 33434 , category :'electronics'}] ;
+
+
+const filterResult = productss.filter((item)=>{
+return item.category === 'electronics'
+})
+
+console.log(filterResult) ;
+console.table(productss) ;
+
+//NOTE find 
+
+//find method returns the current item which matches the condition first
+//filter returns all the item which matches the condition in the callback function in an array
+const findResult = productss.find((item)=>{
+return item.category === 'electronics'
+})
+
+console.log(findResult) ;
+
+//NOTE reduce
+
+
+const numArray = [7,2,3,4,5,6] ;
+
+const reduceMethod = numArray.reduce((accumulator,currentItem)=>{
+console.log(accumulator,currentItem)
+return accumulator + currentItem
+},0)
+
+console.log(reduceMethod) ;
+
+const carItem = [{proudctName : 'shirt',price:500,quantity : 3,inStock : true},{proudctName : 'jeans',price:1150,quantity:5,inStock : false}]
+
+// return accumulator + (item.price * item.quantity)
+
+//some returns true or false 
+
+const someResult = productss.some((item)=>{
+return !item.inStock
+})
+console.log(someResult)
+
+//every
+const everyResult = productss.every((item)=>{
+return item.inStock
+})
+console.log(everyResult) ;  
+
+
+//reversed , sort
+
+const numarr = [1,2,3,4,8,45,98] ;
+// console.log(numarr.reverse()) ;
+console.log(numarr.toReversed())
+console.log(numarr)
+
+//toReversed , toSpliced , toSorted
+
+//sort 
+console.log(numarr.sort((a,b)=>{
+    console.log(a,b)
+ return b-a ;  
+
+})) ;
+
+//NOTE DESTRUTURING OF ARRAY : 
+const companies = ['google','netflix','meta'];
+
+// const company1 = companies[0] ;
+// const company2 = companies[1] ;
+// const company3 = companies[2] ;
+
+//NOTE destructuring in array 
+//NOTE in an array destructuring happens on the basis of index position.
+const [comapany1, ,company2,] = companies
+
+console.log(comapany1,company2) ;
+
+//default 
+const names = ['ritesh','aman','utsav','pankaj','abhay'] ;
+
+// const [frnd1, frnd2,frnd3,frnd4,frnd5='shubham'] = names ;
+
+
+
+// console.log(frnd5) ;
+
+// (...rest parameter)
+
+const [frnd1, frnd2, ...remaining] = names ;
+
+
+console.log(frnd1 ,frnd2,remaining) ;
+
+//NOTE useCase using rest paramter in the function params
+function looparr(...items){
+    //rest params packs the items in an array then we can loop on it
+    console.log(items)
+    items.forEach((item)=>{
+        console.log(item)
+    })
+}
+
+looparr(1,2,3,4,5,6,7) ;
+
+
+
+
+
+
+
 
 
 
