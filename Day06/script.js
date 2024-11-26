@@ -212,3 +212,12 @@ form.addEventListener('submit', function (event) {
   event.preventDefault();
   console.log('hello');
 });
+
+
+//create a form in the html use two fields one for username and other for password
+//on form submit handle the submit event and console.log() both  the fields value eg: username : value , password : value
+
+
+// const formData = {
+//   username : username.value
+// }
