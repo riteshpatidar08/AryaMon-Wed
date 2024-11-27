@@ -1,118 +1,82 @@
-// const form = document.getElementById('form')
-// const username = document.getElementById('username')
-// const password = document.getElementById('password') ;
+//
 
-// form.addEventListener('submit',function(event){
-//     console.log(this)
-//     event.preventDefault();
+//hoisting
 
-//     const formData  = {
-//         username : username.value ,
-//         password : password.value
-//     }
-//     console.log(formData)
-// })
+console.log(college);
+console.log(window);
+var college;
 
-// //this keyword
+// var is hoisted the initial value will be undefined
 
-// // console.log(this) in the global scope this will point to window object
+// let ,const
+// let => hoisted tdz => temporal dead zone
+// console.log(rollno)
 
-// function demo(){
-//     console.log(this)
-// }
+// let rollno ;
 
-// demo()
+// rollno = 5 ;
 
-// //in normal mode when this is used in the function declARATION it willl poin to window oject
-
-// //in strict mode it will point to undefined
-
-// const greet = () => {
-//     console.log(this)
-// }
-
-// const obj = {
-//     firstname : 'ritesh',
-//     printname : ()=>{
-//         console.log(this.firstname)
-//     }
-// }
-
-// obj.printname() ;
-
-//asynchronous js
-
-// console.log('step1')
-// setTimeout(function(){
-//     alert('hi')
-// },5000)
-// console.log('step3')
-
-//callback
-
-function greet(callback) {
-  callback();
+//function declaration is hoisted inital value will be the function you have defined.
+console.log(window);
+function greet() {
+  console.log('hello');
 }
 
-function msg() {
-  console.log('this is callback function called by higher order function');
+//function expression ;
+// console.log(sum())
+var sum = function (a, b) {
+  return a + b;
+};
+
+// console.log(multiply)
+// let multiply = function(a,b){
+//   return a * b
+// }
+
+//type erros
+
+// const str = 'hello'
+
+// str.map()
+
+//var , let , const
+
+let a = 5;
+
+function demo() {
+  var b = 5;
 }
 
-//promises => object => properties , methods
+demo();
 
-//promises => pending , fulfilled , rejected
+// console.log(b)
 
-//we can create a promise
-
-const willYouPassInExam = new Promise((resolve, reject) => {
-  reject('you are fail in exam');
-});
-
-console.log(willYouPassInExam);
-
-willYouPassInExam
-  .then((data) => console.log(data))
-  .catch((err) => console.log(err))
-  .finally(() => console.log('always run'));
-
-// if promise fulfilled or rjected  you have handle both the cases.
-
-//fulfilled => then() ;
-//reject => catch() ;
-
-function fetchData() {
-  const data = { username: 'test@123' };
-  return new Promise((resolve, reject) => {
-    if (Math.random() > 0.4) {
-      resolve(data);
-    } else {
-      reject('data fetching failed');
-    }
-  });
+if (true) {
+  var c = 10;
 }
 
-fetchData()
-  .then((data) => console.log(data))
-  .catch((err) => console.log(err));
+// console.log(c) ;
 
-fetch('https://randomuser.me/api/')
-  .then((res) => res.json())
-  .then((data) => console.log(data))
-  .catch((err) => console.log(err));
+// JSON =>
 
-//   https://restcountries.com/v3.1/all
+const gadget = {
+  gadgetName: 'smartwatch',
+  batterLife: '40hr',
+};
 
-fetch('https://restcountries.com/v3.1/all')
-  .then((res) => res.json())
-  .then((data) => {
-    data.forEach((country) => {
-      const h1 = document.createElement('h1');
-      h1.textContent = country.name.common;
-      document.body.appendChild(h1);
-      const option = document.createElement('option');
-      option.textContent = country.name.common;
-      const select = document.getElementById('select');
+//NOTE JSON DATA LOOK LIKE THIS 
+// {
+//   "gadgetName" : "smartwatch",
+//   "batteryLife" : "40hr"
+// }
 
-      select.append(option);
-    });
-  });
+//NOTE stringify used to convert the object into json or in string form
+
+const obj = JSON.stringify(gadget);
+
+console.log(obj);
+
+//parse convert the json back to obj
+const convertToObj = JSON.parse(obj);
+
+console.log(convertToObj);
